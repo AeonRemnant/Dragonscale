@@ -1,0 +1,9 @@
+FROM cgr.dev/chainguard/go:latest-dev AS builder
+WORKDIR /app
+COPY go.mod go.sum./
+COPY . .
+RUN go build -o myapp .
+FROM cgr.dev/chainguard/static
+COPY --from=builder /app/myapp /usr/bin/myapp
+EXPOSE 8080
+CMD ["/usr/bin/myapp"]

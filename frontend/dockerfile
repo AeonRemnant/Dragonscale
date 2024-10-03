@@ -1,0 +1,11 @@
+FROM cirrusci/flutter:stable-web AS build
+USER root
+WORKDIR /app
+COPY . .
+RUN flutter channel stable
+RUN flutter upgrade
+RUN flutter build web
+FROM cgr.dev/chainguard/caddy:latest
+COPY --from=build /app/build/web /usr/share/caddy
+EXPOSE 80
+CMD ["file-server", "--root", "/usr/share/caddy"]
