@@ -1,9 +1,10 @@
 FROM cgr.dev/chainguard/go:latest-dev AS builder
 WORKDIR /app
-COPY go.mod go.sum./
-COPY . .
-RUN go build -o docker .
-FROM cgr.dev/chainguard/static
+COPY go.mod go.sum ./
+COPY ./cmd/dragonscale ./
+RUN go build -o docker ./
+FROM cgr.dev/chainguard/go:latest-dev
 COPY --from=builder /app/docker /usr/bin/docker
 EXPOSE 8080
-CMD ["/usr/bin/docker"]
+USER root
+ENTRYPOINT [ "/usr/bin/docker" ]

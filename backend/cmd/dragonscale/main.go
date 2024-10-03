@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
 
 	containertypes "github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/client"
@@ -24,4 +25,6 @@ func main() {
 	for _, container := range containers {
 		fmt.Println(container.ID)
 	}
+	// Sleep for a while before listing again
+	time.Sleep(5 * time.Second)
 }
