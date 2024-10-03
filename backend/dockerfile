@@ -2,8 +2,8 @@ FROM cgr.dev/chainguard/go:latest-dev AS builder
 WORKDIR /app
 COPY go.mod go.sum./
 COPY . .
-RUN go build -o myapp .
+RUN go build -o docker .
 FROM cgr.dev/chainguard/static
-COPY --from=builder /app/myapp /usr/bin/myapp
+COPY --from=builder /app/docker /usr/bin/docker
 EXPOSE 8080
-CMD ["/usr/bin/myapp"]
+CMD ["/usr/bin/docker"]
