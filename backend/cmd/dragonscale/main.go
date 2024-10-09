@@ -1,9 +1,14 @@
 package main
 
 import (
-	docker "github.com/aeonremnant/dragonscale/internal"
+	"fmt"
+	"net/http"
 )
 
 func main() {
-	docker.Docker()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, "Hello, World!")
+	})
+
+	http.ListenAndServe(":8080", nil)
 }
