@@ -22,13 +22,13 @@ class BaseAppLayoutState extends State<BaseAppLayout> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: Color.fromARGB(255, 0, 122, 255),
         ),
       ),
       darkTheme: ThemeData(
-        appBarTheme: AppBarTheme(
-          color: Color.fromARGB(255, 0, 0, 0),
+        appBarTheme: const AppBarTheme(
+          color: Color.fromARGB(255, 216, 133, 8),
         ),
       ),
       themeMode: _themeMode,

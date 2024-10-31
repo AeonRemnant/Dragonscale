@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'util/base.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,9 +13,8 @@ class MyApp extends StatelessWidget {
     return BaseAppLayout(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Main Page'),
+          title: const Text('Main Page'),
         ),
-        child: Text('Welcome to Dragonscale!'),
       ),
     );
   }

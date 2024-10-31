@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"github.com/aeonremnant/dragonscale/api"
+	"github.com/aeonremnant/dragonscale/docker"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "Hello, World!")
-	})
+	go api.StartRESTServer()
+	go docker.DockerClient()
 
-	http.ListenAndServe(":8080", nil)
+	select {}
 }
