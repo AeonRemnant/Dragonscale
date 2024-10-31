@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/aeonremnant/dragonscale/api"
-	"github.com/aeonremnant/dragonscale/docker"
+	"github.com/aeonremnant/dragonscale/internal/api"
+	"github.com/aeonremnant/dragonscale/internal/docker"
 )
 
 func main() {
